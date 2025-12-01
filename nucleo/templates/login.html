@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio / Registro - Meli Shop</title>
+
+    <!-- Tipografías -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #fff7fc, #fbeaff, #ffeef8, #f6e8ff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .auth-container {
+            width: 360px;
+            padding: 30px;
+            border-radius: 25px;
+            background: rgba(255, 240, 248, 0.55);
+            backdrop-filter: blur(10px);
+            box-shadow: 0px 8px 18px rgba(200, 140, 180, 0.25);
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .logo {
+            width: 130px;
+            margin-bottom: 10px;
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.15));
+        }
+
+        h3 {
+            margin: 5px 0;
+            color: #b42286;
+        }
+
+        .input-group {
+            text-align: left;
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #873b9b;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 12px;
+            border: 1px solid #e7b7ff;
+            outline: none;
+            margin-top: 5px;
+            background: rgba(255,255,255,0.8);
+            transition: 0.3s;
+        }
+
+        .input-group input:focus {
+            border-color: #d36bdd;
+            box-shadow: 0 0 8px rgba(211, 107, 221, 0.4);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #ff8acb, #e36cd9);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+            box-shadow: 0px 4px 12px rgba(255, 140, 200, 0.3);
+            transition: 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: scale(1.04);
+            background: linear-gradient(135deg, #ff4fb8, #ce40cb);
+        }
+
+        .close-btn {
+            background: #cba6d8;
+        }
+
+        .close-btn:hover {
+            background: #b792c5;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .form-content {
+            display: none;
+        }
+
+        .form-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="auth-container">
+
+        <!-- LOGIN -->
+        <div id="login-form" class="form-content active">
+            <img src="logo_de_meli_shop.png" alt="Logo de la Aplicación" class="logo">
+
+            <h3 style="font-size: 26px; font-family: 'Great Vibes', cursive; margin-bottom: 5px;">Meli Shop</h3>
+            <h3 style="font-size: 14px; color: #d534db">Ingresa tus datos para acceder a tu cuenta</h3>
+
+            <form action="#" method="POST">
+                <div class="input-group">
+                    <label for="login-email">Correo Electrónico</label>
+                    <input type="email" id="login-email" name="email" placeholder="Ingresa tu correo" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="login-password">Contraseña</label>
+                    <input type="password" id="login-password" name="password" placeholder="**********" required>
+                </div>
+
+                <button type="submit" class="submit-btn login-btn">Iniciar Sesión</button>
+
+                <button type="button" class="submit-btn register-btn" onclick="showForm('register')">
+                    Registrarse
+                </button>
+            </form>
+        </div>
+
+        <!-- REGISTRO -->
+        <div id="register-form" class="form-content">
+            <img src="logo.png" alt="Logo de la Aplicación" class="logo">
+
+            <h3 style="font-size: 26px; font-family: 'Great Vibes', cursive; margin-bottom: 5px;">Crear cuenta</h3>
+            <h3 style="font-size: 14px; color: #d534db">Completa tus datos para registrarte</h3>
+
+            <form action="#" method="POST">
+                <div class="input-group">
+                    <label for="register-name">Nombre</label>
+                    <input type="text" id="register-name" name="name" placeholder="Nombre" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="register-apellido">Apellido</label>
+                    <input type="text" id="register-apellido" name="apellido" placeholder="Apellido" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="register-email">Correo Electrónico</label>
+                    <input type="email" id="register-email" name="email" placeholder="Tu correo electrónico" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="register-password">Contraseña</label>
+                    <input type="password" id="register-password" name="password" placeholder="Crea una contraseña" required>
+                </div>
+
+                <div class="button-group">
+                    <button type="button" class="submit-btn close-btn" onclick="showForm('login')">Cerrar</button>
+                    <button type="submit" class="submit-btn register-btn">Registrarse</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function showForm(formId) {
+            document.querySelectorAll('.form-content').forEach(form => {
+                form.classList.remove('active');
+            });
+            document.getElementById(formId + '-form').classList.add('active');
+        }
+    </script>
+
+</body>
+</html>

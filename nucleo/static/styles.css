@@ -1,0 +1,254 @@
+:root {
+    --rosa-claro: #ffe6f0;
+    --rosa-fuerte: #ff66b3;
+    --rosa-medio: #ffb6c1;
+    --texto-principal: #333;
+    --fondo-blanco: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: var(--rosa-claro);
+    color: var(--texto-principal);
+}
+
+/* Header */
+header {
+    background-color: var(--rosa-fuerte);
+    color: white;
+    padding: 15px 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 2em;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 15px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+header nav a:hover {
+    color: var(--rosa-medio);
+}
+
+/* Main */
+main {
+    padding: 100px 20px 20px 20px;
+}
+
+/* Tarjetas de productos */
+.titulo-seccion {
+    text-align: center;
+    font-size: 2.2em;
+    color: var(--rosa-fuerte);
+    margin-bottom: 20px;
+}
+
+.productos-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+}
+
+.producto-card {
+    width: 250px;
+    background-color: var(--fondo-blanco);
+    border: 2px solid var(--rosa-medio);
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    transition: transform .3s, box-shadow .3s;
+}
+
+.producto-card:hover {
+    transform: scale(1.06);
+    box-shadow: 0 0 15px rgba(255, 105, 180, .4);
+}
+
+.producto-card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.precio {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: var(--rosa-fuerte);
+}
+
+.descripcion {
+    font-size: .9em;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+/* Botones */
+button, .btn {
+    background-color: var(--rosa-fuerte);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+button:hover, .btn:hover {
+    background-color: var(--rosa-medio);
+}
+
+/* Formulario usuarios */
+form {
+    background-color: var(--fondo-blanco);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 400px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+
+form input {
+    width: 100%;
+    margin: 10px 0;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid var(--rosa-medio);
+}
+
+/* Blog */
+.post {
+    background-color: var(--fondo-blanco);
+    border: 2px solid var(--rosa-medio);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+/* Dashboard */
+.card {
+    background-color: var(--fondo-blanco);
+    border: 2px solid var(--rosa-medio);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .producto {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header nav {
+        margin-top: 10px;
+    }
+}
+
+#kiss-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 9999;
+}
+
+.kiss {
+    position: absolute;
+    font-size: 30px;
+    animation-name: fall;
+    animation-timing-function: linear;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-10vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* ===== Estilo especial para la página de Login ===== */
+
+.login-box {
+    background-color: var(--fondo-blanco);
+    border: 2px solid var(--rosa-medio);
+    border-radius: 15px;
+    padding: 25px;
+    max-width: 400px;
+    margin: 120px auto;
+    box-shadow: 0 0 15px rgba(255, 105, 180, .35);
+    text-align: center;
+}
+
+.login-box h2 {
+    font-size: 1.8em;
+    color: var(--rosa-fuerte);
+    margin-bottom: 20px;
+}
+
+/* Inputs estilo Meli Shop */
+.login-box input {
+    width: 100%;
+    padding: 10px;
+    margin: 12px 0;
+    border-radius: 8px;
+    border: 2px solid var(--rosa-medio);
+    background-color: var(--rosa-claro);
+    font-size: 1em;
+    transition: 0.3s;
+}
+
+.login-box input:focus {
+    border-color: var(--rosa-fuerte);
+    outline: none;
+    box-shadow: 0 0 8px rgba(255, 105, 180, .4);
+}
+
+/* Botón estilo del proyecto */
+.login-box button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1em;
+    border-radius: 10px;
+}
+
+/* Mensaje de error */
+.login-error {
+    color: red;
+    margin-top: 10px;
+    font-weight: bold;
+}

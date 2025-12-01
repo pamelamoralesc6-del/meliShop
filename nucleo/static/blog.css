@@ -1,0 +1,228 @@
+/* Paleta Meli Shop */
+:root {
+    --rosa-claro: #ffe6f0;
+    --rosa-pastel: #f8bcd4;
+    --rosa-fuerte: #ff66b3;
+    --lila-suave: #e5c7ff;
+    --lila-fuerte: #c58bff;
+    --beige: #fff8f2;
+    --texto-oscuro: #4a3c47;
+    --texto-medio: #6b6070;
+    --blanco: #ffffff;
+}
+
+/* Tipografía general */
+body {
+    font-family: "Poppins", "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--beige);
+    color: var(--texto-oscuro);
+}
+
+/* Contenedor */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px 0;
+}
+
+/* Header del blog */
+.blog-header {
+    background: linear-gradient(90deg, var(--rosa-claro), var(--lila-suave));
+    padding: 18px 0;
+    border-bottom: 3px solid var(--rosa-pastel);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.blog-header h1 {
+    margin: 0;
+    font-size: 2.1em;
+    font-weight: bold;
+    color: var(--rosa-fuerte);
+    letter-spacing: 1px;
+}
+
+.blog-header nav a {
+    color: var(--texto-oscuro);
+    font-weight: 600;
+    text-decoration: none;
+    margin-left: 18px;
+    padding: 6px 14px;
+    transition: .3s;
+    border-radius: 8px;
+}
+
+.blog-header nav a:hover {
+    background-color: var(--rosa-fuerte);
+    color: white;
+}
+
+.blog-header nav a.active {
+    background-color: var(--lila-fuerte);
+    color: white;
+}
+
+/* Título de sección */
+.section-title {
+    text-align: center;
+    font-size: 2.3em;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    color: var(--rosa-fuerte);
+    text-shadow: 1px 1px 3px rgba(255, 182, 193, 0.3);
+}
+
+/* Grid de tarjetas */
+.article-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+/* Tarjetas */
+.post-card {
+    background-color: var(--blanco);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(255, 182, 193, 0.3);
+    transition: all 0.3s ease;
+    border: 2px solid var(--rosa-pastel);
+}
+
+.post-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 10px 22px rgba(255, 182, 193, 0.45);
+}
+
+.card-image {
+    height: 220px;
+    background: var(--rosa-claro);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--texto-medio);
+    font-size: 1.1em;
+}
+
+/* Contenido interna de tarjeta */
+.card-content {
+    padding: 20px;
+}
+
+.card-content h3 {
+    color: var(--lila-fuerte);
+    margin-top: 0;
+    font-size: 1.4em;
+}
+
+.post-meta {
+    font-size: 0.85em;
+    color: var(--texto-medio);
+    margin-bottom: 12px;
+}
+
+/* Botón */
+.btn-primary {
+    display: inline-block;
+    padding: 10px 16px;
+    background-color: var(--rosa-fuerte);
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: .3s;
+}
+
+.btn-primary:hover {
+    background-color: var(--lila-fuerte);
+}
+
+/* Página completa de artículo */
+.article-page {
+    display: flex;
+    gap: 40px;
+    padding-top: 40px;
+}
+
+.full-post {
+    flex: 3;
+    background-color: var(--blanco);
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border: 2px solid var(--rosa-claro);
+}
+
+.post-title {
+    font-size: 2.4em;
+    color: var(--rosa-fuerte);
+    border-bottom: 3px solid var(--lila-suave);
+    padding-bottom: 12px;
+    margin-top: 0;
+}
+
+.post-feature-image {
+    height: 350px;
+    background-color: var(--rosa-claro);
+    border-radius: 15px;
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.post-body h2, .post-body h3 {
+    color: var(--lila-fuerte);
+    margin-top: 25px;
+}
+
+/* Tags */
+.post-tags span {
+    display: inline-block;
+    background-color: var(--lila-suave);
+    padding: 6px 12px;
+    border-radius: 50px;
+    color: var(--texto-oscuro);
+    margin-right: 10px;
+    font-weight: 600;
+}
+
+/* Sidebar */
+.sidebar-info {
+    flex: 1;
+    background-color: var(--blanco);
+    padding: 20px;
+    border-radius: 15px;
+    border: 2px solid var(--rosa-claro);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+
+.sidebar-info h3 {
+    color: var(--lila-fuerte);
+    margin-top: 0;
+}
+
+.sidebar-info li a {
+    text-decoration: none;
+    display: block;
+    padding: 8px 0;
+    color: var(--texto-medio);
+    transition: .3s;
+}
+
+.sidebar-info li a:hover {
+    color: var(--rosa-fuerte);
+    font-weight: bold;
+}
+
+/* Footer */
+.blog-footer {
+    background: linear-gradient(90deg, var(--rosa-claro), var(--lila-suave));
+    color: var(--texto-oscuro);
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    border-top: 3px solid var(--rosa-pastel);
+}
