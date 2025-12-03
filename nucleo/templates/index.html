@@ -1,138 +1,15 @@
 {% extends "base.html" %}
+{% block title %}Inicio - MeliShop{% endblock %}
 {% load static %}
-
 {% block content %}
 
-<!-- Tipografías elegantes -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
-
-<style>
-    body {
-        font-family: 'Poppins', sans-serif;
-        background: linear-gradient(to bottom, #fff7fc, #ffeef8, #f6e8ff);
-    }
-
-    /* HERO */
-    .hero {
-        background: linear-gradient(135deg, #ffd1e8, #f5c9ff, #ffe8f1);
-        padding: 70px 30px;
-        text-align: center;
-        border-radius: 25px;
-        margin-bottom: 50px;
-        box-shadow: 0px 8px 18px rgba(170, 120, 170, 0.2);
-        animation: fadeIn 1s ease-in-out;
-    }
-
-    .hero h1 {
-        font-size: 55px;
-        font-family: 'Great Vibes', cursive;
-        color: #c72d82;
-        text-shadow: 3px 3px rgba(255, 255, 255, 0.9);
-        margin-top: 15px;
-    }
-
-    .hero p {
-        font-size: 20px;
-        color: #5e2b5e;
-        margin-top: 10px;
-    }
-
-    .hero img {
-        width: 240px;
-        animation: float 3s infinite ease-in-out;
-        filter: drop-shadow(0 8px 15px rgba(0,0,0,0.15));
-    }
-
-    @keyframes float {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-10px); }
-    }
-
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(15px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* TÍTULO DE SECCIÓN */
-    .destacados h2 {
-        color: #d63384;
-        font-size: 33px;
-        margin-bottom: 25px;
-        font-weight: 600;
-        text-shadow: 1px 1px #ffffff;
-    }
-
-    .productos-grid {
-        display: flex;
-        justify-content: center;
-        gap: 30px;
-        flex-wrap: wrap;
-    }
-
-    /* TARJETA DE PRODUCTO - Glassmorphism */
-    .producto-card {
-        width: 230px;
-        background: rgba(255, 240, 248, 0.6);
-        backdrop-filter: blur(10px);
-        border-radius: 18px;
-        padding: 18px;
-        box-shadow: 0 8px 15px rgba(200, 140, 180, 0.25);
-        transition: 0.3s ease;
-        border: 1px solid rgba(255, 200, 230, 0.4);
-    }
-
-    .producto-card:hover {
-        transform: translateY(-7px);
-        box-shadow: 0 12px 20px rgba(200, 120, 180, 0.35);
-    }
-
-    .producto-card img {
-        width: 100%;
-        height: 260px;
-        border-radius: 12px;
-        object-fit: cover;
-    }
-
-    .producto-card h3 {
-        margin-top: 12px;
-        color: #b02076;
-        font-weight: 600;
-    }
-
-    .producto-card p {
-        color: #6a4a6a;
-        font-weight: 500;
-        margin-top: 5px;
-    }
-
-    /* BOTÓN PRINCIPAL */
-    .boton-productos {
-        display: inline-block;
-        margin-top: 35px;
-        padding: 13px 28px;
-        background: linear-gradient(135deg, #ff8acb, #e36cd9);
-        color: white;
-        border-radius: 28px;
-        text-decoration: none;
-        font-weight: 600;
-        box-shadow: 0 5px 15px rgba(255, 140, 200, 0.35);
-        transition: 0.3s ease-in-out;
-    }
-
-    .boton-productos:hover {
-        background: linear-gradient(135deg, #ff4fb8, #ce40cb);
-        transform: scale(1.05);
-    }
-</style>
-
-<!-- HERO -->
+<link rel="stylesheet" href="{% static 'style.css' %}">
 <div class="hero">
-    <img src="{% static 'images/logo_de_meli_shop.png' %}" alt="Meli Shop Logo">
+    <img src="{% static 'logo_de_meli_shop.png' %}" alt="Meli Shop Logo">
     <h1>Meli Shop</h1>
     <p>Tu tienda de ropa favorita 💖 Estilo, elegancia y mucha actitud ✨</p>
 </div>
 
-<!-- PRODUCTOS DESTACADOS -->
 <div class="destacados">
     <h2>✨ Productos Destacados ✨</h2>
 
@@ -148,7 +25,7 @@
         {% endfor %}
     </div>
 
-    <a href="{% url 'lista_productos' %}" class="boton-productos">Ver todos los productos</a>
+    <a href="{% url 'index' %}" class="boton-productos">Ver todos los productos</a>
 </div>
 
 {% endblock %}

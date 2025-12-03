@@ -1,58 +1,41 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artículo: El Outfit Lila que Domina la Primavera</title>
-    <link rel="stylesheet" href="blog.css">
-</head>
-<body>
-    <header class="blog-header">
-        <div class="container">
-            <h1>🌸 MeliShop Tips</h1>
-            <nav>
-                <a href="blog.html">Inicio</a>
-                <a href="#">Categorías</a>
-                <a href="#">Acerca de</a>
-            </nav>
-        </div>
-    </header>
+{% extends 'base.html' %}
+{% load static%}
+{% block title %}Artículo - MeliShop{% endblock %}
 
-    <main class="container article-page">
-        <article class="full-post">
-            <h1 class="post-title">El Outfit Lila que Domina la Primavera</h1>
-            <p class="post-meta">Publicado por Ana G. | 25/Nov/2025 | **Categoría: Moda**</p>
-            
-            <div class="post-feature-image"></div>
+{% block content %}
+<link rel="stylesheet" href="{% static 'post.css' %}">
 
-            <section class="post-body">
-                <p>El color lila, en sus tonalidades más suaves y pastel, se ha convertido en el protagonista indiscutible de las pasarelas y el *street style* de esta temporada. Su versatilidad permite crear looks que van desde lo casual y bohemio hasta lo elegante y sofisticado.</p>
-
-                <h2>Por qué elegir el lila pastel</h2>
-                <p>La psicología del color lo asocia con la calma, la creatividad y la sofisticación. Es una alternativa fresca y menos intensa al rosa, ideal para quienes buscan un toque de color sin ser demasiado llamativo.</p>
-
-                <h3> Tip de Outfit: Lila Monocromático</h3>
-                <p>Para un impacto visual máximo, opta por un look monocromático. Combina un pantalón de lino lila con un *crop top* de punto en el mismo tono. Utiliza accesorios en blanco o en un sutil rosa pastel para crear contraste. **¡Verás la diferencia!**</p>
-
-                <div class="post-tags">
-                    <span>#LilacTrend</span>
-                    <span>#OutfitIdeas</span>
-                    <span>#ModaPrimavera</span>
-                </div>
-            </section>
-        </article>
+<div class="article-page">
+    <article class="full-post">
+        <h1 class="post-title">El Outfit Lila que Domina la Primavera</h1>
+        <p class="post-meta">Publicado por Ana G. | 25/Nov/2025 | **Categoría: Moda**</p>
         
-        <aside class="sidebar-info">
-            <h3>Posts Relacionados</h3>
-            <ul>
-                <li><a href="#">Cómo combinar el rosa pastel</a></li>
-                <li><a href="#">La vuelta del tejido de punto</a></li>
-            </ul>
-        </aside>
-    </main>
+        <div class="post-feature-image"></div>
+
+        <section class="post-body">
+            <p>El color lila, en sus tonalidades más suaves y pastel, se ha convertido en el protagonista indiscutible de las pasarelas y el *street style* de esta temporada. Su versatilidad permite crear looks que van desde lo casual y bohemio hasta lo elegante y sofisticado.</p>
+
+            <h2>Por qué elegir el lila pastel</h2>
+            <p>La psicología del color lo asocia con la calma, la creatividad y la sofisticación. Es una alternativa fresca y menos intensa al rosa, ideal para quienes buscan un toque de color sin ser demasiado llamativo.</p>
+
+            <h3> Tip de Outfit: Lila Monocromático</h3>
+            <p>Para un impacto visual máximo, opta por un look monocromático. Combina un pantalón de lino lila con un *crop top* de punto en el mismo tono. Utiliza accesorios en blanco o en un sutil rosa pastel para crear contraste. **¡Verás la diferencia!**</p>
+
+            <div class="post-tags">
+                <span>#LilacTrend</span>
+                <span>#OutfitIdeas</span>
+                <span>#ModaPrimavera</span>
+            </div>
+        </section>
+    </article>
     
-    <footer class="blog-footer">
-        <p>&copy; 2025 Fashion & Style Blog. Todos los derechos reservados.</p>
-    </footer>
-</body>
-</html>
+    <aside class="sidebar-info">
+        <h3>Posts Relacionados</h3>
+        <ul>
+            <li><a href="{% url 'post' %}">Cómo combinar el rosa pastel</a></li>
+            <li><a href="{% url 'post' %}">La vuelta del tejido de punto</a></li>
+        </ul>
+    </aside>
+</div>
+
+{% endblock %}

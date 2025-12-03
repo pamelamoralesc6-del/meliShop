@@ -1,11 +1,120 @@
 {% extends 'base.html' %}
-{% block title %}Dashboard - Meli Shop{% endblock %}
+
+{% block navbar_header %}{% endblock navbar_header %} 
+{% block title %}Dashboard - MeliShop{% endblock %}
+
 {% block content %}
-<h2>Panel de Administración</h2>
-<div class="card">
-    <h3>Productos: {{ productos }}</h3>
-</div>
-<div class="card">
-    <h3>Publicaciones de Blog: {{ publicaciones }}</h3>
-</div>
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'dashboard.css' %}">
+</head>
+
+<body>
+    <div class="dashboard-container">
+
+        <aside class="sidebar">
+            <div class="logo"><i class="fas fa-chart-bar"></i> MeliShop Admin</div>
+
+            <nav>
+                <div class="section-title">SITIO PRINCIPAL</div>
+                <a href="{% url 'index' %}" class="nav-item"><i class="fas fa-store"></i> Volver a MeliShop</a>
+                
+                <div class="section-title">PANEL</div>
+                <a href="{% url 'dashboard' %}" class="nav-item active"><i class="fas fa-home"></i> Dashboard</a>
+
+                <div class="section-title">PRODUCTOS</div>
+                <a href="#" class="nav-item"><i class="fas fa-plus-circle"></i> Agregar Productos</a>
+                <a href="#" class="nav-item"><i class="fas fa-edit"></i> Editar Productos</a>
+
+                <div class="section-title">VENTAS</div>
+                <a href="#" class="nav-item"><i class="fas fa-chart-line"></i> Reporte de Ventas</a>
+            
+                <div class="section-title">CUENTA</div>
+                <a href="{% url 'login' %}" class="nav-item"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+
+            <header class="main-header">
+                <h2>Panel General</h2>
+                <div class="user-info">
+                    <span>Hola, Administrador</span>
+                    <i class="fas fa-user-circle"></i>
+                </div>
+            </header>
+
+            <section class="content-area">
+
+                <div class="summary-cards">
+                    <div class="card"><h3>Productos Totales</h3><p>150</p></div>
+                    <div class="card"><h3>Ventas Hoy</h3><p>$5,200</p></div>
+                    <div class="card"><h3>Usuarios</h3><p>45</p></div>
+                </div>
+
+                <div class="widget">
+                    <h3>Últimas Ventas</h3>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID Venta</th>
+                                <th>Producto</th>
+                                <th>Cantidad</th>
+                                <th>Total</th>
+                                <th>Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#001</td>
+                                <td>Camiseta Premium</td>
+                                <td>2</td>
+                                <td>$40.00</td>
+                                <td><button class="btn btn-view">Detalles</button></td>
+                            </tr>
+                            <tr>
+                                <td>#002</td>
+                                <td>Pantalón Formal</td>
+                                <td>1</td>
+                                <td>$55.00</td>
+                                <td><button class="btn btn-view">Detalles</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div style="margin-top:20px; text-align:right;">
+                        <button class="btn btn-primary">Exportar</button>
+                        <button class="btn btn-secondary">Nueva Venta</button>
+                    </div>
+                </div>
+
+                <div class="widget">
+                    <h3>Agregar Nuevo Producto</h3>
+
+                    <form class="product-form">
+                        <label>Nombre:</label>
+                        <input type="text" placeholder="Nombre del Producto">
+
+                        <label>Precio:</label>
+                        <input type="number" placeholder="$0.00">
+
+                        <label>Descripción:</label>
+                        <textarea placeholder="Descripción detallada del producto"></textarea>
+
+                        <button class="btn btn-primary" style="margin-top:20px;">Guardar Producto</button>
+                    </form>
+                </div>
+
+            </section>
+        </main>
+
+    </div>
 {% endblock %}

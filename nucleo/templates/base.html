@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}MeliShop{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'base.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    
+    {% block navbar_header %}
+    <header class="navbar">
+        <div class="container">
+            <a href="{% url 'index' %}" class="logo">MeliShop</a>
+            <ul class="nav-menu">
+                <li><a href="{% url 'index' %}">Inicio</a></li>
+                <li><a href="{% url 'blog' %}">Blog</a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+            </ul>
+        </div>
+    </header>
+    {% endblock navbar_header %}
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2025 MeliShop. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

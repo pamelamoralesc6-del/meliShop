@@ -1,63 +1,48 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog de Moda y Outfits - Lista de Artículos</title>
-    <link rel="stylesheet" href="blog.css">
-</head>
-<body>
-    <header class="blog-header">
-        <div class="container">
-            <h1>🌸 MeliShop Tips</h1>
-            <nav>
-                <a href="blog.html" class="active">Inicio</a>
-                <a href="#">Categorías</a>
-                <a href="#">Acerca de</a>
-            </nav>
-        </div>
-    </header>
+{% extends 'base.html' %}
+{% load static %}
 
-    <main class="container">
-        <h2 class="section-title">Últimas Tendencias</h2>
-        
-        <div class="article-grid">
-            
-            <article class="post-card">
-                <div class="card-image"></div>
-                <div class="card-content">
-                    <h3>El Outfit Lila que Domina la Primavera</h3>
-                    <p class="post-meta">Publicado el 25/Nov/2025 | Moda</p>
-                    <p>Descubre cómo combinar prendas en tonos lila y llevar la tendencia monocromática al siguiente nivel...</p>
-                    <a href="post.html" class="btn btn-primary">Leer Más</a>
-                </div>
-            </article>
+{% block title %}Blog - MeliShop{% endblock %}
 
-            <article class="post-card">
-                <div class="card-image"></div>
-                <div class="card-content">
-                    <h3>Accesorios en Rosa Pastel: La Clave</h3>
-                    <p class="post-meta">Publicado el 22/Nov/2025 | Tips</p>
-                    <p>Unos buenos accesorios pueden transformar cualquier look básico. Te mostramos los must-have de la temporada...</p>
-                    <a href="post.html" class="btn btn-primary">Leer Más</a>
-                </div>
-            </article>
+{% block content %}
+<link rel="stylesheet" href="{% static 'blog.css' %}">
 
-            <article class="post-card">
-                <div class="card-image"></div>
-                <div class="card-content">
-                    <h3>5 Reglas Simples para un Fondo de Armario Perfecto</h3>
-                    <p class="post-meta">Publicado el 18/Nov/2025 | Outfits</p>
-                    <p>Construir una base de armario sólida es esencial. Estos tips te ahorrarán tiempo y dinero...</p>
-                    <a href="post.html" class="btn btn-primary">Leer Más</a>
-                </div>
-            </article>
-            
-        </div>
-    </main>
+<div class="container">
+    <h1 class="section-title">🌸 MeliShop Tips</h1>
     
-    <footer class="blog-footer">
-        <p>&copy; 2025 Fashion & Style Blog. Todos los derechos reservados.</p>
-    </footer>
-</body>
-</html>
+    <h2 class="section-title">Últimas Tendencias</h2>
+    
+    <div class="article-grid">
+        
+        <article class="post-card">
+            <div class="card-image"></div>
+            <div class="card-content">
+                <h3>El Outfit Lila que Domina la Primavera</h3>
+                <p class="post-meta">Publicado el 25/Nov/2025 | Moda</p>
+                <p>Descubre cómo combinar prendas en tonos lila y llevar la tendencia monocromática al siguiente nivel...</p>
+                <a href="{% url 'post' %}" class="btn btn-primary">Leer Más</a>
+            </div>
+        </article>
+
+        <article class="post-card">
+            <div class="card-image"></div>
+            <div class="card-content">
+                <h3>Accesorios en Rosa Pastel: La Clave</h3>
+                <p class="post-meta">Publicado el 22/Nov/2025 | Tips</p>
+                <p>Unos buenos accesorios pueden transformar cualquier look básico. Te mostramos los must-have de la temporada...</p>
+                <a href="{% url 'post' %}" class="btn btn-primary">Leer Más</a>
+            </div>
+        </article>
+
+        <article class="post-card">
+            <div class="card-image"></div>
+            <div class="card-content">
+                <h3>5 Reglas Simples para un Fondo de Armario Perfecto</h3>
+                <p class="post-meta">Publicado el 18/Nov/2025 | Outfits</p>
+                <p>Construir una base de armario sólida es esencial. Estos tips te ahorrarán tiempo y dinero...</p>
+                <a href="{% url 'post' %}" class="btn btn-primary">Leer Más</a>
+            </div>
+        </article>
+        
+    </div>
+</div>
+{% endblock %}
