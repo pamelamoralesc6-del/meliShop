@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Producto</title>
+    
+    <style>
+        :root {
+
+            --primary-color: #ff8acb;    
+            --primary-hover: #b42286;      
+            --background-color: #fcf6ff;   
+            --border-color: #e36cd9;      
+            --text-color-dark: #1f2937;   
+            --text-color-medium: #6b7280;  
+            
+            
+            --success-bg: #dcfce7; 
+            --success-text: #16a34a; 
+
+            --primario-oscuro: #b42286;
+            --primario-claro: #e36cd9;
+            --fondo-sidebar: #2e2e2e;
+            --fondo-main: #fcf6ff;
+            --gris-claro: #f5f5f5;
+            --blanco: #ffffff;
+            --acento: #ff8acb;
+            --ancho-sidebar: 260px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem; 
+            margin: 0;
+            line-height: 1.5;
+            transition: background-color 0.5s;
+        }
+
+        .form-container {
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: 1.25rem; 
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), 0 2px 10px rgba(0, 0, 0, 0.03); 
+            width: 100%;
+            max-width: 550px; 
+            border: 1px solid var(--border-color);
+        }
+
+        .form-title {
+            font-size: 2rem; 
+            font-weight: 800; 
+            color: var(--text-color-dark);
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--border-color);
+            letter-spacing: -0.025em; 
+        }
+
+        .message-box {
+            padding: 1rem;
+            border-radius: 0.75rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            text-align: center;
+            background-color: var(--success-bg);
+            color: var(--success-text);
+            border: 1px solid var(--success-text);
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem; 
+            margin-bottom: 2rem;
+        }
+
+        @media (min-width: 640px) { 
+            .form-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        label {
+            display: block;
+            font-size: 0.9rem; 
+            font-weight: 600; 
+            color: var(--text-color-dark); 
+            margin-bottom: 0.35rem; 
+            transition: color 0.2s;
+        }
+
+        .form-input, .form-textarea {
+            width: 100%;
+            padding: 0.85rem; 
+            border: 2px solid var(--border-color); 
+            border-radius: 0.75rem; 
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.04);
+            color: var(--text-color-dark);
+        }
+
+        .form-input:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 4px rgba(255, 138, 203, 0.15); 
+            background-color: #fff;
+        }
+        
+        .form-textarea {
+            resize: vertical; 
+            min-height: 100px;
+        }
+
+
+        .button-group {
+            padding-top: 1rem;
+            border-top: 1px dashed var(--border-color); 
+            margin-top: 1.5rem;
+        }
+
+        .form-button {
+            width: 100%;
+            padding: 0.9rem 1rem; 
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 0.75rem;
+            cursor: pointer;
+            transition: all 0.25s ease-out;
+            border: none;
+            text-decoration: none;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            line-height: 1;
+        }
+        
+        .button-primary {
+            background-color: var(--primary-color);
+            color: var(--text-color-dark); 
+            box-shadow: 0 5px 15px -5px rgba(255, 138, 203, 0.5); 
+            margin-bottom: 0.75rem;
+        }
+
+        .button-primary:hover {
+            background-color: var(--primary-hover);
+            color: white; 
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px -5px rgba(180, 34, 134, 0.7); 
+        }
+        
+
+        .button-primary {
+            color: var(--text-color-dark); 
+        }
+
+        .button-secondary {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            box-shadow: none;
+        }
+
+        .button-secondary:hover {
+            background-color: var(--primary-color);
+            color: var(--text-color-dark); 
+            transform: translateY(-1px);
+        }
+        
+        .optional-hint {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--text-color-medium);
+            margin-top: 0.25rem;
+        }
+
+        input[type='number']::-webkit-inner-spin-button, 
+        input[type='number']::-webkit-outer-spin-button { 
+            -webkit-appearance: none; 
+            margin: 0; 
+        }
+        input[type='number'] {
+            -moz-appearance: textfield;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body> 
+    
+    <div class="form-container"> 
+        <h2 class="form-title">📝 Registro de Inventario</h2>
+
+        {% if mensaje %}
+            <div class="message-box">
+                {{ mensaje }}
+            </div>
+        {% endif %}
+
+        <form method="POST"> 
+            {% csrf_token %}
+            
+            <div class="form-grid"> 
+                
+                <div>
+                    <label for="talla">Talla:</label>
+                    <input type="text" id="talla" name="talla" required placeholder="Ej: S, M, L o 32"
+                            class="form-input">
+                </div>
+                
+                <div>
+                    <label for="color">Color:</label>
+                    <input type="text" id="color" name="color" required placeholder="Ej: Rojo, Azul Marino"
+                            class="form-input">
+                </div>
+
+                <div>
+                    <label for="tipo_tela">Tipo de Tela:</label>
+                    <input type="text" id="tipo_tela" name="tipo_tela" required placeholder="Ej: Algodón, Poliéster"
+                            class="form-input">
+                </div>
+
+                <div>
+                    <label for="precio">Precio ($):</label>
+                    <input type="number" id="precio" name="precio" required step="0.01" min="0" placeholder="Ej: 29.99"
+                            class="form-input">
+                </div>
+                
+                <div>
+                    <label for="stock">Stock (Cantidad):</label>
+                    <input type="number" id="stock" name="stock" required min="0" placeholder="Ej: 50"
+                            class="form-input">
+                </div>
+
+                <div>
+                    <label for="imagen_url">URL de Imagen:</label> 
+                    <input type="url" id="imagen_url" name="imagen_url" placeholder="https://ejemplo.com/imagen.jpg"
+                            class="form-input">
+                    <span class="optional-hint">Campo opcional.</span>
+                </div>
+            </div>
+
+            <div>
+                <label for="descripcion">Descripción:</label>
+                <textarea id="descripcion" name="descripcion" required rows="4" 
+                          placeholder="Escribe una descripción detallada y atractiva para este producto..."
+                          class="form-textarea"></textarea> 
+            </div>
+
+            <div class="button-group">
+                <button type="submit" class="form-button button-primary"> 
+                     Registrar Producto
+                </button>
+            </div>
+        </form>
+        
+
+        <a href="/buscar_producto" class="form-button button-secondary" style="margin-top: 0.75rem;">
+             Ir a Búsqueda de Productos
+        </a>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminar Producto</title>
+    
+    <style>
+        :root {
+            --primary-color: #ff8acb;
+            --primary-hover: #b42286;
+            --background-color: #fcf6ff;
+            --border-color: #e36cd9;
+            --text-color-dark: #1f2937;
+            --text-color-medium: #6b7280;
+            --gris-claro: #f5f5f5;
+            --danger-color: #dc3545; 
+            --danger-hover: #c82333;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 2rem;
+        }
+
+        .eliminar-container {
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: 1.25rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), 0 2px 10px rgba(0, 0, 0, 0.03); 
+            width: 100%;
+            max-width: 550px;
+            border: 1px solid var(--border-color);
+            text-align: center; 
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--danger-color);
+            margin-bottom: 2rem;
+            letter-spacing: -0.025em;
+        }
+
+        .producto-info {
+            background-color: var(--gris-claro);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            margin-bottom: 2rem;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        .producto-info p {
+            margin: 0.5rem 0;
+            color: var(--text-color-dark);
+            font-size: 1rem;
+        }
+
+        .producto-info strong {
+            color: var(--primary-hover);
+            font-weight: 600;
+            display: inline-block;
+            min-width: 120px; 
+        }
+        
+        .advertencia {
+            color: var(--danger-color);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .botones {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .btn { 
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 0.75rem;
+            cursor: pointer;
+            transition: all 0.25s ease-out;
+            border: none;
+            text-decoration: none;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            line-height: 1;
+        }
+
+        .btn-eliminar {
+            background-color: var(--danger-color);
+            color: white;
+            box-shadow: 0 5px 15px -5px rgba(220, 53, 69, 0.5);
+        }
+
+        .btn-eliminar:hover {
+            background-color: var(--danger-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 8px 20px -5px rgba(220, 53, 69, 0.7);
+        }
+
+        .btn-cancelar {
+            background-color: var(--gris-claro);
+            color: var(--text-color-dark);
+            border: 2px solid var(--border-color);
+        }
+
+        .btn-cancelar:hover {
+            background-color: #e0e0e0;
+            transform: translateY(-1px);
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="eliminar-container">
+        <h2>⚠️ Eliminar Producto ID: {{ producto.id }}</h2>
+
+        <div class="producto-info">
+            <p><strong>Talla:</strong> {{ producto.talla }}</p>
+            <p><strong>Color:</strong> {{ producto.color }}</p>
+            <p><strong>Tipo de Tela:</strong> {{ producto.tipo_tela }}</p>
+            <p><strong>Precio:</strong> ${{ producto.precio }}</p>
+            <p><strong>Stock:</strong> {{ producto.stock }} unidades</p>
+            <p><strong>Descripción:</strong> {{ producto.descripcion }}</p>
+        </div>
+
+        <p class="advertencia">¿Está seguro de que desea eliminar este producto? Esta acción no se puede deshacer y el inventario se verá afectado.</p>
+
+        <div class="botones">
+            <form method="POST" style="margin: 0;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-eliminar">Confirmar Eliminación</button>
+            </form>
+            <a href="/buscar_producto/">
+                <button type="button" class="btn btn-cancelar">Cancelar</button>
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
